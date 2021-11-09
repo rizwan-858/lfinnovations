@@ -1,5 +1,7 @@
 import {Component} from 'react'
 
+import './index.css'
+
 class DetailsPage extends Component {
   state = {url: '', name: '', type: ''}
 
@@ -28,13 +30,25 @@ class DetailsPage extends Component {
     })
   }
 
+  onClickHome = () => {
+    const {history} = this.props
+    history.replace('/pokemon')
+  }
+
   render() {
     const {url, name, type} = this.state
     return (
-      <div>
-        <img src={url} alt="pokemon" />
-        <p>{name}</p>
-        <p>{type}</p>
+      <div className="details-container">
+        <div className="details-card">
+          <img className="image" src={url} alt="pokemon" />
+          <div>
+            <h1 className="name">{name}</h1>
+            <p className="type">{type}</p>
+          </div>
+        </div>
+        <button type="button" className="home-btn" onClick={this.onClickHome}>
+          Home
+        </button>
       </div>
     )
   }

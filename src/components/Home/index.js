@@ -7,7 +7,7 @@ import './index.css'
 class Home extends Component {
   state = {
     dataList: [],
-    limit: 9,
+    limit: 10,
     activePage: 1,
   }
 
@@ -79,26 +79,34 @@ class Home extends Component {
     const {activePage} = this.state
     return (
       <div className="home-container">
+        <h1 className="heading">Pokemons</h1>
         {this.renderPokemonsList()}
-        <div>
-          <button
-            testid="pagination-left-button"
-            onClick={this.onBackward}
-            type="button"
-          >
-            <IoIosArrowBack />
-          </button>
-          <div>
-            <p testid="active-page-number">{activePage}</p> <p> of </p>
+        <div className="pagination-container">
+          <div className="btn-container">
+            <button
+              className="btn"
+              testid="pagination-left-button"
+              onClick={this.onBackward}
+              type="button"
+            >
+              <IoIosArrowBack />
+            </button>{' '}
+          </div>
+          <div className="pages">
+            <p testid="active-page-number">{activePage}</p>{' '}
+            <p className="text"> of </p>
             <p>10</p>
           </div>
-          <button
-            testid="pagination-right-button"
-            onClick={this.onForward}
-            type="button"
-          >
-            <IoIosArrowForward />
-          </button>
+          <div className="btn-container">
+            <button
+              className="btn"
+              testid="pagination-right-button"
+              onClick={this.onForward}
+              type="button"
+            >
+              <IoIosArrowForward />
+            </button>
+          </div>
         </div>
       </div>
     )
